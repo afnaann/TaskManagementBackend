@@ -10,6 +10,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token = super().get_token(user)
         token['username'] = user.username
         token['email'] = user.email
+        token['staff_status'] = user.is_staff
         return token
 
 class MyTokenObtainPairView(TokenObtainPairView):
@@ -61,3 +62,8 @@ class UserGetSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['username','email']
+        
+class UserTasksIdSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserTasks
+        fields = ['task','user','completed']

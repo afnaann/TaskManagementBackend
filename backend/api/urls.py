@@ -15,6 +15,8 @@ urlpatterns = [
     path('tasks/submit',views.submitTask.as_view()),
     
     path('admin/getusers',views.getUsers.as_view()),
-    path('admin/alltasks',views.allUserTasks.as_view())
+    path('admin/alltasks',views.allUserTasks.as_view()),
+    path('admin/addtask',views.addTask.as_view()),
+    path('admin/assigntask',views.assignTask.as_view())
 ]
 
